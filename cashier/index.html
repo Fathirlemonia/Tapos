@@ -1,0 +1,107 @@
+
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TAPOS Cashier</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="cashier-app">
+    <aside class="cashier-sidebar">
+      <div class="brand-box">
+        <div class="brand-mark">T</div>
+        <div>
+          <strong>TAPOS</strong>
+          <small>Tap, beres.</small>
+        </div>
+      </div>
+      <div class="menu-block">
+        <span>Operasional</span>
+        <button class="menu-btn active">Kasir</button>
+      </div>
+      <div class="status-box">
+        <span class="status-dot"></span>
+        <div>
+          <strong id="connectionStatus">Online</strong>
+          <small id="syncState">Sinkron</small>
+        </div>
+      </div>
+    </aside>
+
+    <main class="cashier-main">
+      <header class="cashier-header">
+        <div>
+          <small class="muted">Warkop Meteora</small>
+          <h1>Tablet Kasir</h1>
+        </div>
+        <div class="header-actions">
+          <button id="logoutBtn" class="btn btn-ghost">Keluar</button>
+        </div>
+      </header>
+
+      <section class="cashier-panel">
+        <div class="product-area">
+          <div class="panel-head">
+            <h2>Menu</h2>
+            <button id="refreshProducts" class="btn btn-light">Refresh</button>
+          </div>
+          <div id="productGrid" class="product-grid"></div>
+        </div>
+
+        <div class="cart-area">
+          <div class="panel-head">
+            <h2>Keranjang</h2>
+            <button id="clearCart" class="btn btn-light">Bersihkan</button>
+          </div>
+          <div id="cartList" class="cart-list"></div>
+          <div class="summary-box">
+            <div class="summary-row"><span>Subtotal</span><strong id="subtotalValue">Rp 0</strong></div>
+            <div class="summary-row"><span>Diskon</span><input id="discountInput" value="0" type="number" min="0" /></div>
+            <div class="summary-row total"><span>Total</span><strong id="totalValue">Rp 0</strong></div>
+            <label class="field-label">Metode pembayaran</label>
+            <select id="paymentMethod">
+              <option value="Tunai">Tunai</option>
+              <option value="QRIS">QRIS</option>
+              <option value="Debit">Debit</option>
+            </select>
+            <button id="checkoutBtn" class="btn btn-primary">Konfirmasi pembayaran</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="authModal" class="auth-modal active">
+    <div class="auth-card">
+      <div class="auth-header">
+        <div class="brand-mark auth-mark">T</div>
+        <h2>Masuk Kasir</h2>
+      </div>
+      <form id="loginForm">
+        <label>
+          <span>Username</span>
+          <input type="text" id="usernameInput" value="cashier@tapos" required />
+        </label>
+        <label>
+          <span>Password</span>
+          <input type="password" id="passwordInput" value="cashier123" required />
+        </label>
+        <label>
+          <span>Role</span>
+          <select id="roleInput">
+            <option value="cashier">Cashier</option>
+            <option value="owner">Owner</option>
+          </select>
+        </label>
+        <button class="btn btn-primary full" type="submit">Masuk</button>
+      </form>
+      <small class="demo-text">Demo: cashier@tapos / cashier123</small>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <script src="js/cashier.js"></script>
+</body>
+</html>

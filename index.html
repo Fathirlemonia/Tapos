@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TAPOS — Owner Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="TAPOS beranda">
+        <span class="brand-mark">T</span><span><b>TAPOS</b><small>Tap, beres.</small></span>
+      </a>
+      <div class="side-label">MENU UTAMA</div>
+      <nav class="nav">
+        <button class="nav-link active" data-page="overview"><span>▦</span> Ringkasan</button>
+        <button class="nav-link" data-page="transactions"><span>▤</span> Transaksi</button>
+        <button class="nav-link" data-page="products"><span>☷</span> Menu & Produk</button>
+        <button class="nav-link" data-page="inventory"><span>▧</span> Stok</button>
+        <button class="nav-link" data-page="staff"><span>♙</span> Karyawan</button>
+        <button class="nav-link" data-page="reports"><span>▥</span> Laporan</button>
+        <button class="nav-link" data-page="activity"><span>◷</span> Aktivitas</button>
+        <button class="nav-link" data-role="owner" data-page="integrations"><span>◎</span> Integrasi</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <button class="nav-link" data-role="owner" data-page="settings"><span>⚙</span> Pengaturan</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-btn mobile-menu" id="menuToggle" aria-label="Buka menu">☰</button>
+        <div class="breadcrumb">Warkop Meteora <span>/</span> <b id="pageCrumb">Ringkasan usaha</b></div>
+        <div class="top-actions">
+          <span class="live-dot" id="connectionStatus">● <span>Online</span></span>
+          <div class="avatar" id="roleAvatar">PM</div>
+          <div class="profile"><b id="roleTitle">Pemilik</b><small id="roleSubtitle">Administrator</small></div>
+          <button class="btn btn-outline small-btn" id="logoutBtn">Keluar</button>
+        </div>
+      </header>
+
+      <section class="content">
+        <div class="page-heading">
+          <div><p class="eyebrow">OWNER WORKSPACE</p><h1 id="pageTitle">Ringkasan usaha</h1><p class="subheading" id="pageDescription">Pantau performa Warkop Meteora dalam satu tampilan.</p></div>
+          <div class="heading-actions"><span class="date-chip" id="todayLabel"></span><button class="btn btn-outline" id="resetDashboard">↻ <span>Reset data</span></button></div>
+        </div>
+
+        <section class="page active" id="page-overview">
+          <div class="stats-grid">
+            <article class="stat-card"><div class="stat-top"><span>Penjualan hari ini</span><span class="stat-icon purple">↗</span></div><strong id="salesToday">Rp 2.450.000</strong><small class="positive">↑ 12,8% <span>dari hari sebelumnya</span></small></article>
+            <article class="stat-card"><div class="stat-top"><span>Total transaksi</span><span class="stat-icon blue">▤</span></div><strong id="transactionCount">86</strong><small class="muted">Transaksi tercatat hari ini</small></article>
+            <article class="stat-card"><div class="stat-top"><span>Rata-rata transaksi</span><span class="stat-icon orange">◉</span></div><strong id="averageOrder">Rp 28.488</strong><small class="muted">Nilai rata-rata per transaksi</small></article>
+            <article class="stat-card"><div class="stat-top"><span>Produk terjual</span><span class="stat-icon green">☕</span></div><strong id="itemsSold">142</strong><small class="muted">Jumlah item terjual hari ini</small></article>
+          </div>
+
+          <div class="dashboard-grid">
+            <article class="panel sales-panel">
+              <div class="panel-heading"><div><h2>Ringkasan penjualan</h2><p>Performa penjualan selama 7 hari terakhir</p></div><span class="select-static">7 hari terakhir⌄</span></div>
+              <div class="chart-summary"><strong>Rp 14.820.000</strong><span class="positive">↑ 8,4%</span></div>
+              <div class="chart" aria-label="Grafik penjualan tujuh hari">
+                <div class="y-labels"><span>3 jt</span><span>2 jt</span><span>1 jt</span><span>0</span></div>
+                <div class="chart-area">
+                  <div class="gridline g1"></div><div class="gridline g2"></div><div class="gridline g3"></div>
+                  <svg viewBox="0 0 700 190" preserveAspectRatio="none" role="img" aria-label="Grafik tren penjualan">
+                    <defs><linearGradient id="areaFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#6957d9" stop-opacity=".22"/><stop offset="1" stop-color="#6957d9" stop-opacity="0"/></linearGradient></defs>
+                    <path d="M0 145 C45 130 55 115 100 122 S170 92 200 105 S270 65 300 83 S370 108 400 78 S470 50 500 66 S570 30 600 52 S660 38 700 20 L700 190 L0 190Z" fill="url(#areaFill)"/>
+                    <path d="M0 145 C45 130 55 115 100 122 S170 92 200 105 S270 65 300 83 S370 108 400 78 S470 50 500 66 S570 30 600 52 S660 38 700 20" fill="none" stroke="#6957d9" stroke-width="3" vector-effect="non-scaling-stroke"/>
+                  </svg>
+                  <div class="x-labels"><span>Sen</span><span>Sel</span><span>Rab</span><span>Kam</span><span>Jum</span><span>Sab</span><span>Min</span></div>
+                </div>
+              </div>
+            </article>
+            <article class="panel">
+              <div class="panel-heading"><div><h2>Produk terlaris</h2><p>Berdasarkan jumlah terjual</p></div><button class="text-btn" data-goto="products">Lihat semua</button></div>
+              <div class="product-rank"><span class="rank">01</span><span class="product-emoji">☕</span><div class="rank-info"><b>Kopi Susu Meteora</b><small>48 terjual</small></div><b>Rp 960 rb</b></div>
+              <div class="product-rank"><span class="rank">02</span><span class="product-emoji">🥤</span><div class="rank-info"><b>Es Kopi Aren</b><small>36 terjual</small></div><b>Rp 720 rb</b></div>
+              <div class="product-rank"><span class="rank">03</span><span class="product-emoji">🍜</span><div class="rank-info"><b mi>Mie Goreng</b><small>29 terjual</small></div><b>Rp 580 rb</b></div>
+              <div class="product-rank"><span class="rank">04</span><span class="product-emoji">🍵</span><div class="rank-info"><b>Teh Tarik</b><small>22 terjual</small></div><b>Rp 330 rb</b></div>
+            </article>
+          </div>
+          <div class="dashboard-grid lower-grid">
+            <article class="panel">
+              <div class="panel-heading"><div><h2>Transaksi terbaru</h2><p>Aktivitas transaksi terakhir</p></div><button class="text-btn" data-goto="transactions">Lihat semua</button></div>
+              <div class="table-wrap"><table><thead><tr><th>ID TRANSAKSI</th><th>WAKTU</th><th>KASIR</th><th>TOTAL</th><th>STATUS</th></tr></thead><tbody id="recentTransactions"></tbody></table></div>
+            </article>
+            <article class="panel quick-panel"><div class="panel-heading"><div><h2>Informasi operasional</h2><p>Kondisi usaha saat ini</p></div></div>
+              <div class="operational-row"><span class="op-icon green">●</span><div><b>Status toko</b><small>Beroperasi</small></div><span class="status-pill success">Buka</span></div>
+              <div class="operational-row"><span class="op-icon blue">♙</span><div><b>Kasir bertugas</b><small>Andi, Rina</small></div><span class="status-pill neutral">2 orang</span></div>
+              <div class="operational-row"><span class="op-icon orange">▧</span><div><b>Stok perlu dicek</b><small>Item dengan stok rendah</small></div><span class="status-pill warning">3 item</span></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="page" id="page-transactions"><div class="panel"><div class="panel-heading"><div><h2>Daftar transaksi</h2><p>Riwayat transaksi dari Tablet Kasir.</p></div></div><div class="toolbar"><input id="transactionSearch" placeholder="Cari ID transaksi atau kasir…"><select id="statusFilter"><option value="all">Semua status</option><option value="Selesai">Selesai</option><option value="Diproses">Diproses</option></select></div><div class="table-wrap"><table><thead><tr><th>ID TRANSAKSI</th><th>TANGGAL & WAKTU</th><th>KASIR</th><th>METODE</th><th>TOTAL</th><th>STATUS</th></tr></thead><tbody id="allTransactions"></tbody></table></div></div></section>
+
+        <section class="page" id="page-products"><div class="panel"><div class="panel-heading"><div><h2>Menu & produk</h2><p>Daftar produk Warkop Meteora.</p></div><button class="btn btn-primary" id="addProduct">＋ Tambah produk</button></div><div class="table-wrap"><table><thead><tr><th>PRODUK</th><th>KATEGORI</th><th>HARGA</th><th>TERJUAL</th><th>STATUS</th></tr></thead><tbody id="productRows"></tbody></table></div></div></section>
+
+        <section class="page" id="page-inventory"><div class="panel"><div class="panel-heading"><div><h2>Persediaan stok</h2><p>Pemantauan stok bahan dan kebutuhan operasional.</p></div><button class="btn btn-primary" id="stockUpdate">＋ Tambah stok</button></div><div class="table-wrap"><table><thead><tr><th>NAMA BAHAN</th><th>STOK SAAT INI</th><th>MINIMUM</th><th>STATUS</th></tr></thead><tbody id="stockRows"></tbody></table></div></div></section>
+
+        <section class="page" id="page-staff"><div class="panel"><div class="panel-heading"><div><h2>Data karyawan</h2><p>Informasi staf yang terdaftar.</p></div><button class="btn btn-primary" id="addStaff">＋ Tambah karyawan</button></div><div class="table-wrap"><table><thead><tr><th>NAMA</th><th>PERAN</th><th>SHIFT</th><th>STATUS</th></tr></thead><tbody id="staffRows"></tbody></table></div></div></section>
+
+        <section class="page" id="page-reports"><div class="stats-grid two-stats"><article class="stat-card"><div class="stat-top"><span>Total penjualan (7 hari)</span><span class="stat-icon purple">↗</span></div><strong>Rp 14.820.000</strong><small class="positive">↑ 8,4% dari periode sebelumnya</small></article><article class="stat-card"><div class="stat-top"><span>Total transaksi (7 hari)</span><span class="stat-icon blue">▤</span></div><strong>512</strong><small class="muted">Rata-rata 73 transaksi per hari</small></article></div><div class="panel report-panel"><h2>Laporan penjualan</h2><p>Ringkasan performa berdasarkan data real-time.</p><div class="report-line"><span>Penjualan kotor</span><b>Rp 14.820.000</b></div><div class="report-line"><span>Diskon</span><b>Rp 320.000</b></div><div class="report-line"><span>Penjualan bersih</span><b>Rp 14.500.000</b></div><button class="btn btn-outline" id="exportReport">↓ Unduh laporan CSV</button></div></section>
+
+        <section class="page" id="page-activity"><div class="panel"><div class="panel-heading"><div><h2>Log aktivitas</h2><p>Catatan aktivitas yang terlihat oleh pemilik.</p></div><button class="btn btn-outline" id="clearActivity">Bersihkan log</button></div><div class="activity-list" id="activityList"></div></div></section>
+
+        <section class="page" id="page-integrations">
+          <div class="panel">
+            <div class="panel-heading"><div><h2>Integrasi & API</h2><p>Arsitektur layanan yang menopang TAPOS.</p></div><button class="btn btn-primary">Aktifkan integrasi</button></div>
+            <div class="arch-grid" id="integrationGrid"></div>
+          </div>
+        </section>
+
+        <section class="page" id="page-settings"><div class="panel settings-panel"><h2>Pengaturan dashboard</h2><p>Preferensi tampilan dashboard TAPOS.</p><label class="setting-row"><span><b>Notifikasi stok rendah</b><small>Tampilkan pengingat ketika stok berada di bawah minimum.</small></span><input type="checkbox" checked></label><label class="setting-row"><span><b>Ringkasan penjualan</b><small>Tampilkan kartu ringkasan pada halaman utama.</small></span><input type="checkbox" checked></label><div class="setting-row"><span><b>Mode aplikasi</b><small>Dashboard responsif untuk HP dan laptop.</small></span><span class="status-pill success">Responsive</span></div></div></section>
+        <footer>© 2026 TAPOS · Tap, beres. <span>Owner dashboard</span></footer>
+      </section>
+    </main>
+  </div>
+  <div class="auth-overlay active" id="authOverlay">
+    <div class="auth-card">
+      <div class="auth-header">
+        <div class="brand-mark auth-mark">T</div>
+        <div>
+          <small class="eyebrow">TAPOS ACCESS</small>
+          <h2>Masuk dashboard</h2>
+        </div>
+      </div>
+      <form id="loginForm" class="auth-form">
+        <label>
+          <span>Nama pengguna</span>
+          <input id="loginUsername" type="text" value="owner@tapos" placeholder="owner@tapos" required>
+        </label>
+        <label>
+          <span>Password</span>
+          <input id="loginPassword" type="password" value="admin123" placeholder="••••••••" required>
+        </label>
+        <button class="btn btn-primary full-width" type="submit">Masuk ke TAPOS</button>
+      </form>
+      <p class="auth-hint">Akses khusus pemilik.</p>
+    </div>
+  </div>
+  <dialog class="staff-dialog" id="staffDialog" aria-labelledby="staffDialogTitle">
+    <form id="staffForm" class="staff-form">
+      <div class="staff-dialog__header">
+        <div>
+          <p class="eyebrow">DATA KARYAWAN</p>
+          <h2 id="staffDialogTitle">Tambah karyawan</h2>
+        </div>
+        <button class="icon-btn" type="button" id="closeStaffDialog" aria-label="Tutup">×</button>
+      </div>
+      <label>
+        <span>Nama lengkap</span>
+        <input id="staffName" name="name" type="text" maxlength="100" required autocomplete="name">
+      </label>
+      <label>
+        <span>Jabatan</span>
+        <select id="staffRole" name="role" required>
+          <option value="Kasir">Kasir</option>
+          <option value="Karyawan">Karyawan</option>
+        </select>
+      </label>
+      <label>
+        <span>Shift</span>
+        <select id="staffShift" name="shift" required>
+          <option value="Pagi">Pagi</option>
+          <option value="Siang">Siang</option>
+          <option value="Malam">Malam</option>
+          <option value="Belum diatur">Belum diatur</option>
+        </select>
+      </label>
+      <div class="staff-dialog__actions">
+        <button class="btn btn-outline" type="button" id="cancelAddStaff">Batal</button>
+        <button class="btn btn-primary" type="submit">Simpan karyawan</button>
+      </div>
+    </form>
+  </dialog>
+  <dialog class="staff-dialog" id="productDialog" aria-labelledby="productDialogTitle">
+    <form id="productForm" class="staff-form">
+      <div class="staff-dialog__header">
+        <div>
+          <p class="eyebrow">MENU & PRODUK</p>
+          <h2 id="productDialogTitle">Tambah produk</h2>
+        </div>
+        <button class="icon-btn" type="button" id="closeProductDialog" aria-label="Tutup">×</button>
+      </div>
+      <label>
+        <span>Nama produk</span>
+        <input id="productName" name="name" type="text" maxlength="120" required>
+      </label>
+      <label>
+        <span>Kategori</span>
+        <select id="productCategory" name="category" required>
+          <option value="Minuman">Minuman</option>
+          <option value="Makanan">Makanan</option>
+          <option value="Lainnya">Lainnya</option>
+        </select>
+      </label>
+      <label>
+        <span>Harga (Rp)</span>
+        <input id="productPrice" name="price" type="number" min="0" step="1" required>
+      </label>
+      <label>
+        <span>Jumlah terjual</span>
+        <input id="productSold" name="sold" type="number" min="0" step="1" value="0" required>
+      </label>
+      <div class="staff-dialog__actions">
+        <button class="btn btn-outline" type="button" id="cancelAddProduct">Batal</button>
+        <button class="btn btn-primary" type="submit">Simpan produk</button>
+      </div>
+    </form>
+  </dialog>
+  <dialog class="staff-dialog" id="inventoryDialog" aria-labelledby="inventoryDialogTitle">
+    <form id="inventoryForm" class="staff-form">
+      <div class="staff-dialog__header">
+        <div>
+          <p class="eyebrow">PERSEDIAAN</p>
+          <h2 id="inventoryDialogTitle">Tambah stok</h2>
+        </div>
+        <button class="icon-btn" type="button" id="closeInventoryDialog" aria-label="Tutup">×</button>
+      </div>
+      <label>
+        <span>Nama bahan</span>
+        <input id="inventoryName" name="name" type="text" maxlength="100" required>
+      </label>
+      <label>
+        <span>Stok saat ini</span>
+        <input id="inventoryQuantity" name="quantity" type="number" min="0" step="0.01" required>
+      </label>
+      <label>
+        <span>Minimum stok</span>
+        <input id="inventoryMinimum" name="minimum" type="number" min="0" step="0.01" required>
+      </label>
+      <label>
+        <span>Satuan</span>
+        <input id="inventoryUnit" name="unit" type="text" maxlength="20" value="pcs" required>
+      </label>
+      <div class="inventory-status-preview">
+        <span>Status stok</span>
+        <span id="inventoryStatusPreview" class="status-pill success" aria-live="polite">Aman</span>
+      </div>
+      <div class="staff-dialog__actions">
+        <button class="btn btn-outline" type="button" id="cancelInventory">Batal</button>
+        <button class="btn btn-primary" type="submit">Simpan stok</button>
+      </div>
+    </form>
+  </dialog>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="js/data.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

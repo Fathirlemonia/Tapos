@@ -1,0 +1,25 @@
+{
+	"folders": [
+		{
+			"path": "../owner"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "../docs"
+		},
+		{
+			"path": "../database"
+		},
+		{
+			"path": "../backend"
+		},
+		{
+			"path": "../css"
+		},
+		{
+			"path": "../js"
+		}
+	]
+}

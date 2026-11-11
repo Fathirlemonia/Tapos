@@ -1,0 +1,22 @@
+{
+  "name": "tapos-integrated-system",
+  "version": "1.0.0",
+  "description": "TAPOS integrated POS and owner monitoring system",
+  "main": "backend/src/server.js",
+  "scripts": {
+    "start": "node backend/src/server.js",
+    "dev": "node --watch backend/src/server.js",
+    "db:migrate": "node backend/src/db/migrate.js",
+    "db:seed": "node backend/src/db/seed.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.13.0",
+    "uuid": "^10.0.0",
+    "ws": "^8.18.0"
+  }
+}
